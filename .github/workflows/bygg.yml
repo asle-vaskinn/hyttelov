@@ -1,4 +1,7 @@
-name: Bygg og publiser
+name: Bygg
+
+# Sjekker at bestemmelsene bygger (henvisninger, struktur, status).
+# Publisering skjer i Permen, som henter repoet og bygger selv.
 
 on:
   push:
@@ -8,12 +11,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   bygg:
@@ -26,18 +23,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml
-      - run: python bygg/bygg.py _site
-      - uses: actions/upload-pages-artifact@v3
+      - run: python bygg/bygg.py _site --kilde "${{ github.server_url }}/${{ github.repository }}"
+      - uses: actions/upload-artifact@v4
         with:
+          name: bestemmelser
           path: _site
-
-  publiser:
-    if: github.event_name != 'pull_request'
-    needs: bygg
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - id: deploy
-        uses: actions/deploy-pages@v4

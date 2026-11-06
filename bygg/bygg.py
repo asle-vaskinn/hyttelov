@@ -1,15 +1,23 @@
 """Bygger bestemmelsene fra paragrafer/, vedlegg/ og struktur.yml.
 
-Bruk:  python bygg/bygg.py [utmappe]      (standard: _site)
+Bruk:  python bygg/bygg.py [utmappe] [--kilde URL]
+
+utmappe   hvor siden skrives (standard: _site)
+--kilde   lenke til repoet som vises øverst på siden («Kilde og
+          endringsforslag»). Utelates den, vises ingen lenke.
 
 Lager index.html og bestemmelser.json. Stopper med feilmelding hvis
 struktur.yml og filene ikke stemmer overens, eller en henvisning ikke finnes.
 """
-import html, json, pathlib, re, subprocess, sys
+import argparse, html, json, pathlib, re, subprocess, sys
 import yaml
 
 ROT = pathlib.Path(__file__).resolve().parent.parent
-UT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROT / "_site"
+ap = argparse.ArgumentParser(description="Bygger bestemmelsene")
+ap.add_argument("utmappe", nargs="?", default=str(ROT / "_site"))
+ap.add_argument("--kilde", help="URL til repoet, vises som lenke på siden")
+ARGS = ap.parse_args()
+UT = pathlib.Path(ARGS.utmappe)
 STATUSER = {"vedtatt", "forslag"}
 feil = []
 
@@ -229,13 +237,13 @@ UT.mkdir(parents=True, exist_ok=True)
 antall = {s: sum(p["status"] == s for p in paragrafer) for s in STATUSER}
 undertittel = f"{antall['vedtatt']} vedtatte paragrafer · {antall['forslag']} forslag"
 mal = (ROT / "bygg" / "mal.html").read_text(encoding="utf-8")
-(UT / "index.html").write_text(mal.replace("{{UNDERTITTEL}}", undertittel).replace("{{INNHOLD}}", "\n\n".join(deler)),
-                               encoding="utf-8")
+kilde = f' · <a href="{html.escape(ARGS.kilde)}">Kilde og endringsforslag</a>' if ARGS.kilde else ""
+(UT / "index.html").write_text(mal.replace("{{UNDERTITTEL}}", undertittel).replace("{{KILDE}}", kilde)
+                               .replace("{{INNHOLD}}", "\n\n".join(deler)), encoding="utf-8")
 data = {"paragrafer": [{k: v for k, v in p.items() if k != "kropp"} | {"tekst": ren_tekst(p["kropp"])} for p in paragrafer],
         "vedlegg": [{k: v for k, v in x.items() if k != "kropp"} | {"tekst": ren_tekst(x["kropp"])} for x in vedlegg],
         "kapitler": [{"id": k["id"], "nummer": k["nummer"], "tittel": k["tittel"],
                       "deler": [{"id": d["id"], "nummer": d["nummer"], "tittel": d["tittel"]} for d in k["deler"]]}
                      for k in kapitler]}
 (UT / "bestemmelser.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-(UT / "CNAME").write_text("hyttelov.studenterhytta.org\n")
 print(f"Bygget {len(paragrafer)} paragrafer ({undertittel}) og {len(vedlegg)} vedlegg til {UT}")
