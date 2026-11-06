@@ -2,7 +2,8 @@
 tittel: Ansvar
 status: forslag
 vedtak: []
-vurdering: med
+vurdering: vent
+vurdering_grunn: Avventes etter gjennomgang.
 ---
 (1) Økonomi ivaretas av økonomiansvarlig og kasserer.
 

@@ -2,8 +2,8 @@
 tittel: Utleie
 status: forslag
 vedtak: []
-vurdering: kanskje
-vurdering_grunn: «Dagsleie med overnatting» erstatter flere utleietyper. Det er en endring.
+vurdering: vent
+vurdering_grunn: «Dagsleie med overnatting» erstatter flere utleietyper. Det er en endring. Avventes etter gjennomgang.
 ---
 (1) Hytta leies ut som dagsleie med overnatting. Tider følger av [[vedlegg/utleieperioder]].
 

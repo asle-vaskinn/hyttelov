@@ -2,7 +2,8 @@
 tittel: Publisering
 status: forslag
 vedtak: []
-vurdering: med
+vurdering: vent
+vurdering_grunn: Avventes etter gjennomgang.
 ---
 (1) Informasjon til besøkende publiseres på nettsiden. Intern informasjon publiseres ikke der.
 

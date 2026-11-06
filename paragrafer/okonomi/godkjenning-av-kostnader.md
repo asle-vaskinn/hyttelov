@@ -2,8 +2,8 @@
 tittel: Godkjenning av kostnader
 status: forslag
 vedtak: []
-vurdering: kanskje
-vurdering_grunn: Årlige rammer per gjeng og styremedlem er nytt.
+vurdering: vent
+vurdering_grunn: Årlige rammer per gjeng og styremedlem er nytt. Avventes etter gjennomgang.
 ---
 (1) Innkjøp av varer for salg krever ikke vedtak i Hyttestyret, så lenge innkjøpene holdes innenfor budsjettet for kostnadene.
 

@@ -2,7 +2,8 @@
 tittel: Fakturering og innfordring
 status: forslag
 vedtak: []
-vurdering: med
+vurdering: vent
+vurdering_grunn: Avventes etter gjennomgang.
 ---
 (1) Betalingsfrist er 14 dager med mindre annet er avtalt.
 

@@ -2,8 +2,8 @@
 tittel: Badstugruppa
 status: forslag
 vedtak: []
-vurdering: kanskje
-vurdering_grunn: Tredje ledd om at badstuoppmannen utnevner sin etterfølger er nytt.
+vurdering: vent
+vurdering_grunn: Tredje ledd om at badstuoppmannen utnevner sin etterfølger er nytt. Avventes etter gjennomgang.
 ---
 (1) Badstugruppa ivaretar badstua som del av hyttetilbudet og hyttekulturen.
 

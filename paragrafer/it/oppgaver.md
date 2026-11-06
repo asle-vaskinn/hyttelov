@@ -2,8 +2,8 @@
 tittel: Oppgaver
 status: forslag
 vedtak: []
-vurdering: kanskje
-vurdering_grunn: Ny, men ukontroversiell.
+vurdering: vent
+vurdering_grunn: Ny, men ukontroversiell. Avventes etter gjennomgang.
 ---
 Ansvarlig gjeng har ansvar for
 
