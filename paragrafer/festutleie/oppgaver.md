@@ -2,7 +2,7 @@
 tittel: Oppgaver
 status: forslag
 vedtak: []
-vurdering: med
+vurdering: vent
 ---
 Ansvarlig gjeng har ansvar for
 

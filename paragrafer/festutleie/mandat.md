@@ -2,8 +2,8 @@
 tittel: Mandat
 status: forslag
 vedtak: []
-vurdering: med
-vurdering_grunn: Mandat. Behandles sammen med de andre mandatene. Tatt med etter gjennomgang.
+vurdering: vent
+vurdering_grunn: Mandat. Behandles sammen med de andre mandatene.
 ---
 (1) Ansvarlig gjeng har mandat til å
 
