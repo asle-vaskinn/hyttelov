@@ -2,6 +2,8 @@
 tittel: Definisjoner
 status: forslag
 vedtak: []
+vurdering: med
+vurdering_grunn: Trengs av nesten alle andre paragrafer. «Beruset» er allerede vedtatt (09.10), men mangler referanse.
 ---
 I disse bestemmelsene menes med
 

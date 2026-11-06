@@ -2,6 +2,7 @@
 tittel: Omfang
 status: forslag
 vedtak: []
+vurdering: med
 ---
 Interne arrangementer omfatter
 

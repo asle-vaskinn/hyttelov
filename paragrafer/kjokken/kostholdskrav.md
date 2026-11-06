@@ -2,6 +2,7 @@
 tittel: Kostholdskrav
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Gjester med allergier og vegetarianere skal tilbys et likeverdig alternativ. Med likeverdig menes en fullverdig rett og ikke standardretten med ingredienser fjernet.
 

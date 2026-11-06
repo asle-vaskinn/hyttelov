@@ -4,6 +4,8 @@ status: forslag
 gjelder_fra: 15.01.2025
 neste_gjennomgang:
 merknad: Innholdet er kun for illustrasjon.
+vurdering: vent
+vurdering_grunn: Innholdet er bare illustrasjon. Vedleggene fastsettes av den som har mandat, ikke i pakke 1.
 ---
 | Overnatting, per person inkl. frokost | Pris |
 |---|--:|

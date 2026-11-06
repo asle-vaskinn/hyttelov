@@ -2,6 +2,7 @@
 tittel: Oppgaver
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Hyttestyret fastsetter kalenderen etter [[arrangement-generelt/kalender]] og avgjør unntak fra perioder som er sperret for utleie etter [[vedlegg/utleieperioder]].
 

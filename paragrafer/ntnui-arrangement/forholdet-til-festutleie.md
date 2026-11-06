@@ -2,6 +2,7 @@
 tittel: Forholdet til festutleie
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Bestemmelsene om festutleie i [[festutleie]] gjelder for NTNUI-arrangement med de unntakene som følger av annet og tredje ledd.
 

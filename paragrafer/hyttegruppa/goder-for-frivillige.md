@@ -2,6 +2,7 @@
 tittel: Goder for frivillige
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Aktive har
 

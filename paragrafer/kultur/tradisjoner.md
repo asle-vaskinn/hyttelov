@@ -2,6 +2,7 @@
 tittel: Tradisjoner
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Studenterhytta skal ivareta Hyttas tradisjoner og hyttekultur.
 

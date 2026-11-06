@@ -2,6 +2,7 @@
 tittel: Kapasitet
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Studenterhyttas kapasitetsgrenser skal ligge under grensene fastsatt av myndighetene.
 

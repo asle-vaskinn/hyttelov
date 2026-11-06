@@ -2,6 +2,7 @@
 tittel: Gjengene
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Kjøkkengjengen ledes av kjøkkensjef.
 

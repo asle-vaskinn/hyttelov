@@ -2,6 +2,7 @@
 tittel: Fakturering og innfordring
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Betalingsfrist er 14 dager med mindre annet er avtalt.
 

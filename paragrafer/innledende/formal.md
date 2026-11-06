@@ -2,6 +2,8 @@
 tittel: Formål
 status: forslag
 vedtak: []
+vurdering: med
+vurdering_grunn: Andre og tredje ledd («ikke et utleielokale») kan bli diskutert, men står i dagens hyttelov.
 ---
 (1) Formålet for Hytta og for Studenterhytta følger av NTNUIs lov.
 

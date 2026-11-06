@@ -2,6 +2,7 @@
 tittel: Krav til leietaker
 status: forslag
 vedtak: []
+vurdering: med
 ---
 Leietaker skal være en registrert organisasjon og dokumentere dette slik:
 

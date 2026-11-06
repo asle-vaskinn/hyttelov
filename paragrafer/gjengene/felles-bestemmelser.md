@@ -2,6 +2,8 @@
 tittel: Felles bestemmelser
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Rammer og prosedyrer for gjengsjefer henger sammen med styresaken om mandat.
 ---
 (1) Hver gjeng ledes av en gjengsjef som utpekes av Hyttestyret.
 

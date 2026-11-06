@@ -2,6 +2,7 @@
 tittel: Publisering
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Informasjon til besøkende publiseres på nettsiden. Intern informasjon publiseres ikke der.
 

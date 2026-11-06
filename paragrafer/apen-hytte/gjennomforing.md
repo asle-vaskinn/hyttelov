@@ -2,6 +2,7 @@
 tittel: Gjennomføring
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Åpen hytte holdes på lørdager som er fordelt til åpen hytte etter [[arrangement-generelt/kalender]].
 

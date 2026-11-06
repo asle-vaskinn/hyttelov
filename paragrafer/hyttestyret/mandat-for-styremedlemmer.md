@@ -2,6 +2,8 @@
 tittel: Mandat for styremedlemmer
 status: forslag
 vedtak: []
+vurdering: vent
+vurdering_grunn: Beløpsgrense på 5 000 kr er ny og bør behandles sammen med mandatene.
 ---
 (1) Styremedlemmer har mandat til å
 

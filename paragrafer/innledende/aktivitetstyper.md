@@ -2,6 +2,7 @@
 tittel: Aktivitetstyper
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Studenterhytta driver følgende aktiviteter, ordnet etter kobling til formålet:
 

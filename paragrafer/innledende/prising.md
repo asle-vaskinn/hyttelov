@@ -2,6 +2,8 @@
 tittel: Prising
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: De fire prisnivåene er ny struktur fra utkastet, ikke dagens tekst.
 ---
 (1) Studenterhytta har fire prisnivåer:
 

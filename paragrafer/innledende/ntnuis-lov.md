@@ -2,6 +2,7 @@
 tittel: NTNUIs lov
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Studenterhytta NTNUI er en driftsgruppe under NTNUI og rapporterer til NTNUIs generalforsamling.
 

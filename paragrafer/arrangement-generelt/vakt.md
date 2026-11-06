@@ -2,6 +2,8 @@
 tittel: Vakt
 status: forslag
 vedtak: []
+vurdering: med
+vurdering_grunn: Allerede vedtatt (09.10), men mangler referanse.
 ---
 (1) Vakter fra Hyttegruppa er hyttevakter. Hvert skift ledes av en skiftleder.
 

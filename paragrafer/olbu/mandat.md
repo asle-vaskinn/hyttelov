@@ -2,6 +2,8 @@
 tittel: Mandat
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Har grunnlag i dagens tekst, men bør trolig behandles sammen med de andre mandatene.
 ---
 (1) Ansvarlig gjeng har mandat til å
 

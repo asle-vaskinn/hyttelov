@@ -2,6 +2,8 @@
 tittel: Skiftleder
 status: forslag
 vedtak: []
+vurdering: vent
+vurdering_grunn: Ny rolle med eget mandat.
 ---
 (1) For hvert arrangement skal det utnevnes en skiftleder.
 

@@ -56,6 +56,17 @@
   .vedlegg h3, h3.hist { font-size: 1rem; font-weight: 600; margin: 1.75rem 0 .5rem; }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   h4.gjeng { font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin: 2.25rem 0 .9rem; }
+  [data-vurdering="med"] { --v: #3B6D11; --vb: #EAF3DE; } [data-vurdering="kanskje"] { --v: #854F0B; --vb: #FAEEDA; } [data-vurdering="vent"] { --v: #A32D2D; --vb: #FCEBEB; }
+  .v-med { --v: #3B6D11; --vb: #EAF3DE; } .v-kanskje { --v: #854F0B; --vb: #FAEEDA; } .v-vent { --v: #A32D2D; --vb: #FCEBEB; }
+  @media (prefers-color-scheme: dark) {
+    [data-vurdering="med"], .v-med { --v: #97C459; --vb: #27500A; } [data-vurdering="kanskje"], .v-kanskje { --v: #EF9F27; --vb: #633806; } [data-vurdering="vent"], .v-vent { --v: #F09595; --vb: #791F1F; }
+  }
+  section.par[data-vurdering] { border-left: 4px solid var(--v); border-radius: 0; padding-left: .7rem; margin-left: -1.1rem; }
+  .vedlegg h3[data-vurdering] { border-left: 4px solid var(--v); padding-left: .6rem; margin-left: -1rem; }
+  p.vurdering { font-family: var(--font-ui); font-size: .8rem; color: var(--v); background: var(--vb); padding: .25rem .5rem; border-radius: 3px; margin: .1rem 0 .5rem; }
+  p.vurdering span { font-weight: 600; text-transform: uppercase; letter-spacing: .05em; font-size: .7rem; margin-right: .3rem; }
+  .tree a.tv { box-shadow: inset 3px 0 0 var(--v); border-radius: 0 3px 3px 0; }
+  .sub span[class^="v-"] { color: var(--v); font-weight: 500; }
   .note { font-family: var(--font-ui); font-size: .85rem; color: var(--muted); }
 
   .layout { max-width: 74rem; margin: 0 auto; display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 3rem; }
@@ -133,6 +144,14 @@
       <option value="forslag">Bare forslag</option>
     </select>
   </label>
+  <label for="f-vurd" id="f-vurd-wrap">Vurdering
+    <select id="f-vurd">
+      <option value="">Alle</option>
+      <option value="med">Grønn – med</option>
+      <option value="kanskje">Gul – kanskje</option>
+      <option value="vent">Rød – vent</option>
+    </select>
+  </label>
   <span class="filter-count" id="f-count" aria-live="polite"></span>
 </div>
 
@@ -185,7 +204,9 @@
       var n = h.querySelector('.sign').textContent.replace('§', '').trim();
       var t = h.cloneNode(true);
       t.querySelectorAll('.sign').forEach(function (x) { x.remove(); });
-      parentUl(n).appendChild(link(el.id, '§ ' + n, t.textContent.trim()));
+      var li3 = link(el.id, '§ ' + n, t.textContent.trim());
+      if (el.dataset.vurdering) li3.firstChild.classList.add('tv', 'v-' + el.dataset.vurdering);
+      parentUl(n).appendChild(li3);
     } else {
       var m = el.textContent.match(/^Vedlegg (\d+)\.\s*(.*)$/);
       chapUl.appendChild(link(el.id, m ? m[1] + '.' : '', m ? m[2] : el.textContent));
@@ -231,7 +252,7 @@
 
   /* ---------- Filtre: visning, ansvarlig og status ---------- */
   var fView = document.getElementById('f-view'), fGjeng = document.getElementById('f-gjeng'),
-      fStatus = document.getElementById('f-status'), fCount = document.getElementById('f-count');
+      fStatus = document.getElementById('f-status'), fVurd = document.getElementById('f-vurd'), fCount = document.getElementById('f-count');
   function numOf(el) {
     var sg = el.querySelector && el.querySelector('.sign');
     return sg ? sg.textContent.replace('§', '').trim() : null;
@@ -261,7 +282,7 @@
   }
   var mandatTitles = { 'Ansvar': 1, 'Mandat': 1, 'Oppgaver': 1 };
   function apply() {
-    var view = fView.value, gj = fGjeng.value, st = fStatus.value;
+    var view = fView.value, gj = fGjeng.value, st = fStatus.value, vu = fVurd.value;
     var shown = 0;
     secs.forEach(function (sec) {
       var n = numOf(sec), chap = n.split('.')[0], g = groupOf(n), ok = true;
@@ -273,6 +294,7 @@
       var forslag = sec.getAttribute('data-status') === 'forslag';
       if (ok && st === 'uten-forslag' && forslag) ok = false;
       if (ok && st === 'forslag' && !forslag) ok = false;
+      if (ok && vu && sec.getAttribute('data-vurdering') !== vu) ok = false;
       sec.hidden = !ok;
       if (ok) shown++;
     });
@@ -284,7 +306,7 @@
       var c = h2.dataset.nr;
       h2.hidden = !secs.some(function (s) { return !s.hidden && numOf(s).split('.')[0] === c; });
     });
-    var filtered = view !== 'alt' || gj || st;
+    var filtered = view !== 'alt' || gj || st || vu;
     ['vedlegg', 'endringslogg'].forEach(function (id) {
       var h = document.getElementById(id); if (!h) return;
       h.hidden = !!filtered;
@@ -297,13 +319,14 @@
       if (t) a.parentNode.hidden = !!t.hidden;
     });
     tree.querySelectorAll('details').forEach(function (d) { var h = document.getElementById(d.dataset.chap); if (h) d.parentNode.hidden = !!h.hidden; });
-    try { localStorage.setItem('sh-filter', JSON.stringify({ v: view, g: gj, s: st })); } catch (e) {}
+    try { localStorage.setItem('sh-filter', JSON.stringify({ v: view, g: gj, s: st, u: vu })); } catch (e) {}
   }
   try {
     var saved = JSON.parse(localStorage.getItem('sh-filter') || 'null');
-    if (saved) { fView.value = saved.v || 'alt'; fGjeng.value = saved.g || ''; fStatus.value = saved.s || ''; }
+    if (saved) { fView.value = saved.v || 'alt'; fGjeng.value = saved.g || ''; fStatus.value = saved.s || ''; fVurd.value = saved.u || ''; }
   } catch (e) {}
-  [fView, fGjeng, fStatus].forEach(function (el) { el.addEventListener('change', apply); });
+  if (!main.querySelector('[data-vurdering]')) document.getElementById('f-vurd-wrap').hidden = true;
+  [fView, fGjeng, fStatus, fVurd].forEach(function (el) { el.addEventListener('change', apply); });
   apply();
   if (location.hash) { var el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) el.scrollIntoView(); }
 })();
@@ -335,7 +358,7 @@
     if (sec === defSec) return;
     var used = {};
     var walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, {
-      acceptNode: function (n) { return n.parentElement.closest('h3, a, .sign, .ref') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }
+      acceptNode: function (n) { return n.parentElement.closest('h3, a, .sign, .ref, .vurdering') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }
     });
     var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(function (node) {

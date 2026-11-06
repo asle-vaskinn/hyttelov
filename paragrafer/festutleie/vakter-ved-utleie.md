@@ -2,6 +2,7 @@
 tittel: Vakter ved utleie
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Leietaker skal stille edruvakt.
 

@@ -2,6 +2,7 @@
 tittel: Prioritering
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Ved konkurrerende bruk av Hytta gjelder følgende prioritet:
 

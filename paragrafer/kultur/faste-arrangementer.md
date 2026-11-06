@@ -2,6 +2,7 @@
 tittel: Faste arrangementer
 status: forslag
 vedtak: []
+vurdering: med
 ---
 Følgende er faste arrangementer:
 

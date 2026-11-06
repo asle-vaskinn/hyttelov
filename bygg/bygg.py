@@ -19,6 +19,8 @@ ap.add_argument("--kilde", help="URL til repoet, vises som lenke på siden")
 ARGS = ap.parse_args()
 UT = pathlib.Path(ARGS.utmappe)
 STATUSER = {"vedtatt", "forslag"}
+# Valgfri arbeidsmerking ved gjennomgang før et vedtak: grønn, gul eller rød.
+VURDERINGER = {"med": "Med", "kanskje": "Kanskje", "vent": "Vent"}
 feil = []
 
 
@@ -56,7 +58,10 @@ for k, kap in enumerate(struktur["kapitler"], 1):
             feil.append(f"id {pid} er brukt to ganger")
         mål[pid] = {"tekst": f"§ {nummer}", "anker": pid}
         p = {"id": pid, "nummer": nummer, "tittel": meta.get("tittel", ""), "status": meta.get("status"),
-             "vedtak": meta.get("vedtak") or [], "kapittel": kap["id"], "del": del_id, "kropp": kropp}
+             "vedtak": meta.get("vedtak") or [], "kapittel": kap["id"], "del": del_id, "kropp": kropp,
+             "vurdering": meta.get("vurdering"), "vurdering_grunn": meta.get("vurdering_grunn")}
+        if p["vurdering"] not in (None, *VURDERINGER):
+            feil.append(f"{pid}: vurdering må være {', '.join(VURDERINGER)}")
         if p["status"] not in STATUSER:
             feil.append(f"{pid}: status må være vedtatt eller forslag")
         if p["status"] == "vedtatt" and not p["vedtak"]:
@@ -176,12 +181,23 @@ def tabell_html(rader, kilde):
     return f'<div class="table-wrap"><table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
 
 
+def vurdering_html(x):
+    v = x.get("vurdering")
+    if not v:
+        return "", ""
+    grunn = x.get("vurdering_grunn") or ""
+    return (f' data-vurdering="{v}"',
+            f'<p class="vurdering v-{v}"><span>{VURDERINGER[v]}</span>{(" " + html.escape(grunn)) if grunn else ""}</p>')
+
+
 def paragraf_html(p):
     st = ' data-status="forslag"' if p["status"] == "forslag" else ""
+    va, vp = vurdering_html(p)
+    st += va
     kropp = blokk_html(p["kropp"], p["id"], definisjoner=p["id"] == "innledende/definisjoner")
     ref = f'<p class="ref">Vedtak: {html.escape("; ".join(map(str, p["vedtak"])))}.</p>' if p["vedtak"] else ""
     return (f'<section class="par" id="{p["id"]}"{st}>\n<h3><span class="sign">§ {p["nummer"]}</span>'
-            f'{html.escape(p["tittel"])}</h3>\n{kropp}\n{ref}</section>')
+            f'{html.escape(p["tittel"])}</h3>\n{vp}{kropp}\n{ref}</section>')
 
 
 deler = []
@@ -200,8 +216,9 @@ if vedlegg:
                 f"Neste gjennomgang {v['neste_gjennomgang']}." if v.get("neste_gjennomgang") else "",
                 v.get("merknad") or ""]
         info = " ".join(x for x in info if x)
-        deler.append(f'<h3 id="{v["id"]}"{st}>Vedlegg {v["nummer"]}. {html.escape(v["tittel"])}</h3>'
-                     + (f'<p class="note">{html.escape(info)}</p>' if info else "")
+        va, vp = vurdering_html(v)
+        deler.append(f'<h3 id="{v["id"]}"{st}{va}>Vedlegg {v["nummer"]}. {html.escape(v["tittel"])}</h3>'
+                     + vp + (f'<p class="note">{html.escape(info)}</p>' if info else "")
                      + blokk_html(v["kropp"], v["id"]))
     deler.append("</div>")
 
@@ -236,14 +253,18 @@ if feil:
 UT.mkdir(parents=True, exist_ok=True)
 antall = {s: sum(p["status"] == s for p in paragrafer) for s in STATUSER}
 undertittel = f"{antall['vedtatt']} vedtatte paragrafer · {antall['forslag']} forslag"
+vurd = {v: sum(p["vurdering"] == v for p in paragrafer) for v in VURDERINGER}
+if any(vurd.values()):
+    undertittel += (f' · vurdering: <span class="v-med">{vurd["med"]} med</span>, '
+                    f'<span class="v-kanskje">{vurd["kanskje"]} kanskje</span>, <span class="v-vent">{vurd["vent"]} vent</span>')
 mal = (ROT / "bygg" / "mal.html").read_text(encoding="utf-8")
 kilde = f' · <a href="{html.escape(ARGS.kilde)}">Kilde og endringsforslag</a>' if ARGS.kilde else ""
 (UT / "index.html").write_text(mal.replace("{{UNDERTITTEL}}", undertittel).replace("{{KILDE}}", kilde)
                                .replace("{{INNHOLD}}", "\n\n".join(deler)), encoding="utf-8")
-data = {"paragrafer": [{k: v for k, v in p.items() if k != "kropp"} | {"tekst": ren_tekst(p["kropp"])} for p in paragrafer],
+data = {"paragrafer": [{k: v for k, v in p.items() if k not in ("kropp", "vurdering", "vurdering_grunn")} | {"tekst": ren_tekst(p["kropp"])} for p in paragrafer],
         "vedlegg": [{k: v for k, v in x.items() if k != "kropp"} | {"tekst": ren_tekst(x["kropp"])} for x in vedlegg],
         "kapitler": [{"id": k["id"], "nummer": k["nummer"], "tittel": k["tittel"],
                       "deler": [{"id": d["id"], "nummer": d["nummer"], "tittel": d["tittel"]} for d in k["deler"]]}
                      for k in kapitler]}
 (UT / "bestemmelser.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-print(f"Bygget {len(paragrafer)} paragrafer ({undertittel}) og {len(vedlegg)} vedlegg til {UT}")
+print(f"Bygget {len(paragrafer)} paragrafer ({re.sub('<[^>]+>', '', undertittel)}) og {len(vedlegg)} vedlegg til {UT}")

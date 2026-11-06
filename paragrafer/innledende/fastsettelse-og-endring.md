@@ -2,6 +2,8 @@
 tittel: Fastsettelse og endring
 status: forslag
 vedtak: []
+vurdering: med
+vurdering_grunn: Må med. Den etablerer hele endringsordningen.
 ---
 (1) Hyttestyret fastsetter disse bestemmelsene.
 

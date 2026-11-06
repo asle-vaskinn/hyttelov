@@ -2,6 +2,8 @@
 tittel: Prisføringer
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Tre prisnivåer er omarbeidet i utkastet. Femte ledd er allerede vedtatt (09.10).
 ---
 (1) Ølbua har tre prisnivåer:
 

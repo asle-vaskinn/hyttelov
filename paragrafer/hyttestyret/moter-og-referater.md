@@ -2,6 +2,8 @@
 tittel: Møter og referater
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Lukkede møter og frister for saksliste er nytt.
 ---
 (1) Styremøter er som hovedregel lukket for andre enn medlemmer av Hyttestyret. Observatører kan delta etter vedtak i Hyttestyret.
 

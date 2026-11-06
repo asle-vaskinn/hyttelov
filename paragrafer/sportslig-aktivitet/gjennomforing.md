@@ -2,6 +2,8 @@
 tittel: Gjennomføring
 status: forslag
 vedtak: []
+vurdering: vent
+vurdering_grunn: Krav om opplæring og signert kontrakt er nytt.
 ---
 (1) Sportslig aktivitet skal ha konkurranse, trening, seminar eller annen aktivitet som er direkte knyttet til dette, som hovedinnhold.
 

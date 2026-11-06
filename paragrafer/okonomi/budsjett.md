@@ -2,6 +2,8 @@
 tittel: Budsjett
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Frister og avviksgrenser (10/15 %) bør bekreftes av økonomiansvarlig.
 ---
 (1) Budsjettet settes opp fordelt på kostnadene i [[vedlegg/kontoplan]]. Hvem som er ansvarlig for hver av dem, følger av samme vedlegg.
 

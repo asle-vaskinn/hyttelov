@@ -2,6 +2,8 @@
 tittel: Styremedlemmer
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Beskriver rollene, men «regnes som aktive» er nytt.
 ---
 (1) Medlemmer av Hyttestyret regnes som aktive.
 

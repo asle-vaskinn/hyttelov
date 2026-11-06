@@ -2,6 +2,7 @@
 tittel: Omfang
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) NTNUI-arrangement omfatter følgende arrangementer:
 

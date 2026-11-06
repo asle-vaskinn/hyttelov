@@ -48,6 +48,13 @@ vedtak: []                 # f.eks. ["Hyttestyremøte 17, sak 4 (12.10.2026)"]
 `forslag` brukes bare i overgangen. Målet er at alle paragrafer enten blir
 vedtatt eller slettet. Deretter kommer alle nye forslag som pull requests.
 
+### Vurdering før et vedtak
+
+Før en pakke legges fram for Hyttestyret kan paragrafene merkes med
+`vurdering: med | kanskje | vent` og en kort `vurdering_grunn:`. Siden viser
+dem som grønn, gul og rød, og de kan filtreres. Merkingen er et arbeidsverktøy
+og fjernes når pakken er vedtatt.
+
 ## Slik foreslår du en endring
 
 1. Åpne filen på GitHub og trykk blyanten (*Edit*). GitHub lager en egen

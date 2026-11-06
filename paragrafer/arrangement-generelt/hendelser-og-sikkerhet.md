@@ -2,6 +2,7 @@
 tittel: Hendelser og sikkerhet
 status: forslag
 vedtak: []
+vurdering: med
 ---
 (1) Ulykker og hendelser skal føres i hendelseslogg og rapporteres til Hyttestyret.
 

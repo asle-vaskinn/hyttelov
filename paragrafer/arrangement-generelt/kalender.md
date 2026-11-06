@@ -2,6 +2,8 @@
 tittel: Kalender
 status: forslag
 vedtak: []
+vurdering: kanskje
+vurdering_grunn: Ny fordeling av ukedager og lørdag fordelt ved vedtak før hvert semester.
 ---
 (1) Ukedagene er fordelt på aktivitetstyper slik:
 

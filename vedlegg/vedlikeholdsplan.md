@@ -4,6 +4,8 @@ status: forslag
 gjelder_fra:
 neste_gjennomgang:
 merknad: Innholdet er kun for illustrasjon.
+vurdering: vent
+vurdering_grunn: Innholdet er bare illustrasjon. Vedleggene fastsettes av den som har mandat, ikke i pakke 1.
 ---
 | Oppgave | Frist / frekvens | Utføres av |
 |---|---|---|
