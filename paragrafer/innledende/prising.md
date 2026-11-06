@@ -14,4 +14,4 @@ vedtak: []
 
 (3) Samlede inntekter skal over tid dekke samlede kostnader.
 
-(4) Hyttestyret gjennomgår prisene årlig i forbindelse med budsjettet, etter forslag fra økonomiansvarlig. Gjeldende priser følger av [[vedlegg/priser]].
+(4) Hyttestyret gjennomgår prisene årlig i forbindelse med budsjettet, etter forslag fra økonomiansvarlig.
