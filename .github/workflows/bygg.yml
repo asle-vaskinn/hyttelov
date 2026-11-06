@@ -1,7 +1,7 @@
-name: Bygg
+name: Bygg og publiser
 
-# Sjekker at bestemmelsene bygger (henvisninger, struktur, status).
-# Publisering skjer i Permen, som henter repoet og bygger selv.
+# Bygger bestemmelsene på hver push og PR (sjekker henvisninger, struktur og
+# status). Push til main publiseres i tillegg til GitHub Pages.
 
 on:
   push:
@@ -11,6 +11,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: bygg-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   bygg:
@@ -28,3 +32,21 @@ jobs:
         with:
           name: bestemmelser
           path: _site
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publiser:
+    if: github.event_name != 'pull_request'
+    needs: bygg
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

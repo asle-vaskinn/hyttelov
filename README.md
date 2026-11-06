@@ -1,7 +1,7 @@
 # Bestemmelser for Studenterhytta NTNUI
 
-Kilden til Studenterhyttas bestemmelser. Den publiserte versjonen ligger i
-Permen under `/bestemmelser`. Permen henter repoet og bygger siden selv.
+Kilden til Studenterhyttas bestemmelser. Siden publiseres på GitHub Pages
+ved hver endring i `main`, og i Permen, som henter repoet og bygger selv.
 
 ## Slik er repoet bygd opp
 
