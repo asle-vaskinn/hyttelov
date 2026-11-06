@@ -8,7 +8,7 @@
 
 ## Type
 
-- [ ] **Vedtak** – endrer innholdet. Flettes først når Hyttestyret har vedtatt det.
+- [ ] **Vedtak** – endrer innholdet. Flettes først når Hyttestyret har vedtatt det. Paragrafene får `status: vedtatt` og vedtaksreferanse.
 - [ ] **Teknisk** – opprydding uten endret betydning (§ 1.10 fjerde ledd). Kan flettes direkte.
 
 ## Kilde
