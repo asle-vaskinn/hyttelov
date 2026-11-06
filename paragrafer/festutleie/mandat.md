@@ -11,5 +11,5 @@ vedtak: []
 (2) Ansvarlig gjeng kan ikke uten vedtak i Hyttestyret
 
 - a) fravike prioriteringen i [[innledende/prioritering]],
-- b) fravike prisene i [[vedlegg/priser]] eller gi rabatter,
-- c) åpne perioder som er sperret for utleie etter [[vedlegg/utleieperioder]].
+- b) fravike fastsatte priser eller gi rabatter,
+- c) åpne perioder som er sperret for utleie.
