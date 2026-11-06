@@ -13,4 +13,4 @@ vedtak:
 - e) festutleie til andre studentorganisasjoner,
 - f) annen bruk.
 
-(2) Det kan i tillegg tas hensyn til økonomi, tidligere bruk og andre forhold. Hensyn til andre forhold skal legges fram for Hyttestyret.
+(2) Det kan i tillegg tas hensyn til andre forhold, som økonomi og tidligere bruk. Dette skal legges fram for Hyttestyret.
