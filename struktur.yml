@@ -1,0 +1,167 @@
+# Rekkefølgen her bestemmer nummereringen. Flytt en linje for å flytte en paragraf.
+kapitler:
+- id: innledende
+  tittel: Innledende bestemmelser
+  paragrafer:
+  - innledende/ntnuis-lov
+  - innledende/virkeomrade
+  - innledende/formal
+  - innledende/definisjoner
+  - innledende/aktivitetstyper
+  - innledende/prioritering
+  - innledende/prising
+  - innledende/apenhet
+  - innledende/unntak
+  - innledende/fastsettelse-og-endring
+- id: hyttestyret
+  tittel: Hyttestyret
+  paragrafer:
+  - hyttestyret/oppgaver
+  - hyttestyret/styremedlemmer
+  - hyttestyret/mandat-for-styremedlemmer
+  - hyttestyret/moter-og-referater
+  - hyttestyret/kommunikasjon-pa-slack
+- id: hyttegruppa
+  tittel: Hyttegruppa
+  paragrafer:
+  - hyttegruppa/hyttegruppa
+  - hyttegruppa/goder-for-frivillige
+  - hyttegruppa/rekruttering
+- id: gjengene
+  tittel: Gjengene
+  paragrafer:
+  - gjengene/felles-bestemmelser
+  - gjengene/gjengene
+- id: arrangement
+  tittel: Arrangement
+  deler:
+  - id: arrangement-generelt
+    tittel: Generelt
+    paragrafer:
+    - arrangement-generelt/kalender
+    - arrangement-generelt/ansvar
+    - arrangement-generelt/skiftleder
+    - arrangement-generelt/vakt
+    - arrangement-generelt/kapasitet
+    - arrangement-generelt/hendelser-og-sikkerhet
+    - arrangement-generelt/inkludering
+  - id: sportslig-aktivitet
+    tittel: Sportslig aktivitet
+    paragrafer:
+    - sportslig-aktivitet/formal
+    - sportslig-aktivitet/ansvar
+    - sportslig-aktivitet/gjennomforing
+    - sportslig-aktivitet/samtidige-arrangementer
+  - id: ntnui-arrangement
+    tittel: NTNUI-arrangement
+    paragrafer:
+    - ntnui-arrangement/formal
+    - ntnui-arrangement/omfang
+    - ntnui-arrangement/ansvar
+    - ntnui-arrangement/forholdet-til-festutleie
+  - id: festutleie
+    tittel: Festutleie
+    paragrafer:
+    - festutleie/formal
+    - festutleie/ansvar
+    - festutleie/mandat
+    - festutleie/oppgaver
+    - festutleie/utleie
+    - festutleie/krav-til-leietaker
+    - festutleie/vakter-ved-utleie
+    - festutleie/overnatting
+  - id: intern
+    tittel: Intern
+    paragrafer:
+    - intern/formal
+    - intern/ansvar
+    - intern/omfang
+  - id: apen-hytte
+    tittel: Åpen hytte
+    paragrafer:
+    - apen-hytte/formal
+    - apen-hytte/ansvar
+    - apen-hytte/gjennomforing
+  - id: annet
+    tittel: Annet
+    paragrafer:
+    - annet/formal
+    - annet/ansvar
+    - annet/omfang
+- id: funksjoner
+  tittel: Funksjoner
+  deler:
+  - id: kjokken
+    tittel: Kjøkken
+    paragrafer:
+    - kjokken/formal
+    - kjokken/ansvar
+    - kjokken/mandat
+    - kjokken/oppgaver
+    - kjokken/meny
+    - kjokken/kostholdskrav
+  - id: olbu
+    tittel: Ølbu
+    paragrafer:
+    - olbu/formal
+    - olbu/ansvar
+    - olbu/mandat
+    - olbu/oppgaver
+    - olbu/sortiment
+    - olbu/prisforinger
+  - id: design
+    tittel: Design
+    paragrafer:
+    - design/formal
+    - design/ansvar
+    - design/mandat
+    - design/oppgaver
+    - design/publisering
+  - id: vedlikehold
+    tittel: Vedlikehold
+    paragrafer:
+    - vedlikehold/formal
+    - vedlikehold/ansvar
+    - vedlikehold/mandat
+    - vedlikehold/oppgaver
+- id: admin
+  tittel: Admin
+  deler:
+  - id: admin-generelt
+    tittel: Generelt
+    paragrafer:
+    - admin-generelt/formal
+    - admin-generelt/ansvar
+    - admin-generelt/utredninger
+  - id: okonomi
+    tittel: Økonomi
+    paragrafer:
+    - okonomi/ansvar
+    - okonomi/mandat
+    - okonomi/budsjett
+    - okonomi/godkjenning-av-kostnader
+    - okonomi/fakturering-og-innfordring
+  - id: it
+    tittel: IT
+    paragrafer:
+    - it/oppgaver
+    - it/tilganger
+  - id: systemer-og-prosesser
+    tittel: Systemer og prosesser
+    paragrafer:
+    - systemer-og-prosesser/oppgaver
+- id: kultur
+  tittel: Kultur
+  paragrafer:
+  - kultur/ansvar
+  - kultur/tradisjoner
+  - kultur/faste-arrangementer
+  - kultur/badstugruppa
+vedlegg:
+- vedlegg/priser
+- vedlegg/utleieperioder
+- vedlegg/kontoplan
+- vedlegg/vedlikeholdsplan
+- vedlegg/leverandorer
+- vedlegg/kommunikasjonskanaler
+- vedlegg/ansvarsmatrise

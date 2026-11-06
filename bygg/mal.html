@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bestemmelser for Studenterhytta NTNUI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #f8f8f4; --fg: #1f2420; --muted: #5e655f; --line: #d6dbd4; --accent: #2f5d4a; --panel: #ebeee8; --new: #9a6a1f;
+    --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #171a18; --fg: #e3e6e1; --muted: #9da59e; --line: #333a35; --accent: #8fc1a8; --panel: #222723; --new: #d9a957; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 1.0625rem/1.6 var(--font-body); padding-inline: 16px; }
+  h1, h2, .vedlegg h3, h3.hist { font-family: var(--font-ui); line-height: 1.25; text-wrap: balance; }
+  h1 { font-size: 1.9rem; font-weight: 600; margin: 0 0 .25rem; }
+  .sub { color: var(--muted); margin: 0 0 1.5rem; font-family: var(--font-ui); font-size: .92rem; }
+  h2 { font-size: 1.5rem; font-weight: 600; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--accent); scroll-margin-top: 1rem; }
+  section.par { margin: 0 0 1.4rem; }
+  section.par h3 { font-family: var(--font-body); font-size: 1.0625rem; font-weight: 600; margin: 0 0 .3rem; }
+  section.par h3 .sign { font-variant-numeric: tabular-nums; margin-right: .35em; }
+  p { margin: 0 0 .5rem; }
+  ol.litra { list-style: none; margin: 0 0 .5rem; padding-left: 1.6rem; }
+  ol.litra > li { margin-bottom: .2rem; text-indent: -1.4rem; }
+  ol.litra > li::before { content: attr(data-l) ")"; display: inline-block; width: 1.4rem; text-indent: 0; }
+  ol.litra.nr { margin: .2rem 0 0; text-indent: 0; }
+  [data-status="forslag"] { --st: var(--new); }
+  section.par[data-status], h4[data-status] { border-left: 2px dotted var(--st); padding-left: .7rem; margin-left: -.9rem; }
+  .st-tag, section.par[data-status] > h3::after, h4[data-status]::after, .vedlegg h3[data-status]::after {
+    font-family: var(--font-ui); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; color: var(--st); margin-left: .45rem; white-space: nowrap; }
+  section.par[data-status] > h3::after, h4[data-status]::after, .vedlegg h3[data-status]::after { content: attr(data-status); }
+  .st-tag.forslag { --st: var(--new); }
+  .legend { font-family: var(--font-ui); font-size: .85rem; color: var(--muted); margin: 0 0 1rem; }
+  .legend .st-tag { margin-left: 0; }
+  .filters { font-family: var(--font-ui); font-size: .85rem; display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: end; background: var(--panel); border-radius: 4px; padding: .75rem 1rem; margin: 0 0 2rem; }
+  .filters label { display: flex; flex-direction: column; gap: .2rem; color: var(--muted); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
+  .filters select { font: 500 .9rem var(--font-ui); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 3px; padding: .3rem .4rem; min-width: 9rem; text-transform: none; letter-spacing: 0; }
+  .filters select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .filter-count { color: var(--muted); font-size: .8rem; align-self: center; }
+  .table-wrap { overflow-x: auto; margin: 0 0 1.25rem; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: .86rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--panel); font-weight: 600; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  p.ref { font-family: var(--font-ui); font-size: .78rem; color: var(--muted); margin-top: .25rem; }
+  a.def { color: inherit; text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
+  a.def:hover { text-decoration-color: var(--accent); }
+  main a:not(.def) { color: var(--accent); }
+  li[id^="def-"]:target, section.par:target { background: var(--panel); outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .vedlegg h3, h3.hist { font-size: 1rem; font-weight: 600; margin: 1.75rem 0 .5rem; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  h4.gjeng { font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin: 2.25rem 0 .9rem; }
+  .note { font-family: var(--font-ui); font-size: .85rem; color: var(--muted); }
+
+  .layout { max-width: 74rem; margin: 0 auto; display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 3rem; }
+  .layout > main { margin: 0; max-width: 42rem; padding-block: 3rem 5rem; }
+  aside.side { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; padding-block: 3rem 2rem; font-family: var(--font-ui); font-size: .86rem; }
+  aside.side .side-title { font-weight: 600; font-size: .95rem; margin: 0 0 1rem; color: var(--fg); text-decoration: none; display: block; }
+  .tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+  .tree ul { padding-left: .9rem; border-left: 1px solid var(--line); margin: .2rem 0 .4rem .35rem; }
+  .tree details > summary { cursor: pointer; list-style: none; font-weight: 600; padding: .3rem 0; color: var(--fg); }
+  .tree details > summary::-webkit-details-marker { display: none; }
+  .tree details > summary::before { content: "▸"; display: inline-block; width: 1rem; color: var(--muted); transition: transform .15s; }
+  .tree details[open] > summary::before { transform: rotate(90deg); }
+  .tree a { display: block; padding: .18rem .4rem; border-radius: 3px; color: var(--muted); text-decoration: none; line-height: 1.35; }
+  .tree a .n { font-variant-numeric: tabular-nums; color: var(--fg); opacity: .7; margin-right: .35rem; }
+  .tree a:hover { color: var(--fg); background: var(--panel); }
+  .tree a[aria-current="true"] { color: var(--accent); background: var(--panel); font-weight: 500; }
+  .tree a[aria-current="true"] .n { color: var(--accent); opacity: 1; }
+  .tree li.grp { position: relative; }
+  .tree li.grp > a { padding-left: 1.3rem; }
+  .tree .tg { position: absolute; left: 0; top: .15rem; width: 1.2rem; height: 1.3rem; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; font-size: .7rem; line-height: 1; }
+  .tree .tg::before { content: "▸"; display: inline-block; transition: transform .15s; }
+  .tree li.grp:not(.collapsed) > .tg::before { transform: rotate(90deg); }
+  .tree li.grp.collapsed > ul { display: none; }
+  .menu-btn { display: none; }
+  section.par, h4.gjeng, .vedlegg h3 { scroll-margin-top: 1.25rem; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .menu-btn { display: inline-flex; align-items: center; gap: .4rem; position: sticky; top: 0; z-index: 20; margin: .75rem 0 0; font: 500 .9rem var(--font-ui); color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: .45rem .8rem; cursor: pointer; }
+    aside.side { display: none; position: fixed; inset: 0 auto 0 0; width: min(20rem, 86vw); max-height: none; height: 100%; z-index: 30; background: var(--bg); border-right: 1px solid var(--line); padding: 1.25rem 16px; box-shadow: 0 0 2rem rgb(0 0 0 / .2); }
+    body.nav-open aside.side { display: block; }
+    .scrim { display: none; position: fixed; inset: 0; z-index: 25; background: rgb(0 0 0 / .35); }
+    body.nav-open .scrim { display: block; }
+    .layout > main { padding-top: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tree details > summary::before { transition: none; } }
+</style>
+</head>
+<body>
+<button class="menu-btn" id="menu-btn" type="button" aria-controls="side" aria-expanded="false">☰ Innhold</button>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<aside class="side" id="side" aria-label="Innhold">
+  <a class="side-title" href="#top">Bestemmelser for Studenterhytta NTNUI</a>
+  <ul class="tree" id="tree"></ul>
+</aside>
+<main id="top">
+
+<h1>Bestemmelser for Studenterhytta NTNUI</h1>
+<p class="sub">{{UNDERTITTEL}} · <a href="https://github.com/asle-vaskinn/hyttelov">Kilde og endringsforslag</a> · <a href="bestemmelser.json">JSON</a></p>
+
+<p class="legend"><span class="st-tag forslag">Forslag</span> er ikke vedtatt og gjelder ikke før Hyttestyret har vedtatt det.</p>
+<div class="filters" role="group" aria-label="Filtrer innhold">
+  <label for="f-view">Visning
+    <select id="f-view">
+      <option value="alt">Hele dokumentet</option>
+      <option value="mandat">Mandatoversikt</option>
+    </select>
+  </label>
+  <label for="f-gjeng">Ansvarlig
+    <select id="f-gjeng">
+      <option value="">Alle</option>
+      <option value="kjøkkengjengen">Kjøkkengjengen</option>
+      <option value="ølbugjengen">Ølbugjengen</option>
+      <option value="design- og bookinggjengen">Design- og bookinggjengen</option>
+      <option value="vedlikeholdsgjengen">Vedlikeholdsgjengen</option>
+      <option value="admingjengen">Admingjengen</option>
+      <option value="økonomiansvarlig">Økonomiansvarlig og kasserer</option>
+      <option value="hyttestyret">Hyttestyret</option>
+    </select>
+  </label>
+  <label for="f-status">Status
+    <select id="f-status">
+      <option value="">Vedtatt og forslag</option>
+      <option value="uten-forslag">Bare vedtatt</option>
+      <option value="forslag">Bare forslag</option>
+    </select>
+  </label>
+  <span class="filter-count" id="f-count" aria-live="polite"></span>
+</div>
+
+{{INNHOLD}}
+
+</main>
+</div>
+<script>
+(function () {
+  var main = document.getElementById('top');
+  var tree = document.getElementById('tree');
+  var links = [];
+  function link(id, num, title) {
+    var a = document.createElement('a');
+    a.href = '#' + id;
+    a.innerHTML = (num ? '<span class="n">' + num + '</span>' : '') + title;
+    links.push(a);
+    var li = document.createElement('li'); li.appendChild(a); return li;
+  }
+  var chapUl = null, groups = {};
+  function parentUl(num) {
+    var p = num.split('.').slice(0, -1).join('.');
+    return groups[p] || chapUl;
+  }
+  main.querySelectorAll('h2, h4.gjeng, section.par, .vedlegg h3').forEach(function (el) {
+    if (el.tagName === 'H2') {
+      var d = document.createElement('details');
+      var sm = document.createElement('summary');
+      sm.textContent = el.textContent.replace(/^Kapittel /, '');
+      d.appendChild(sm);
+      chapUl = document.createElement('ul'); d.appendChild(chapUl);
+      d.dataset.chap = el.id;
+      var li = document.createElement('li'); li.appendChild(d); tree.appendChild(li);
+      groups = {};
+    } else if (el.matches('h4.gjeng')) {
+      var sign = el.querySelector('.sign');
+      var num = sign.textContent.replace('§', '').trim();
+      var title = el.textContent.replace(sign.textContent, '').trim();
+      var li2 = link(el.id, num, title); li2.firstChild.style.fontWeight = '500';
+      var ul = document.createElement('ul'); li2.appendChild(ul);
+      li2.className = 'grp collapsed';
+      var tg = document.createElement('button');
+      tg.type = 'button'; tg.className = 'tg'; tg.setAttribute('aria-label', 'Vis eller skjul ' + title); tg.setAttribute('aria-expanded', 'false');
+      tg.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); var c = this.parentNode.classList.toggle('collapsed'); this.setAttribute('aria-expanded', c ? 'false' : 'true'); });
+      li2.insertBefore(tg, li2.firstChild);
+      parentUl(num).appendChild(li2);
+      groups[num] = ul;
+    } else if (el.matches('section.par')) {
+      var h = el.querySelector('h3');
+      var n = h.querySelector('.sign').textContent.replace('§', '').trim();
+      var t = h.cloneNode(true);
+      t.querySelectorAll('.sign').forEach(function (x) { x.remove(); });
+      parentUl(n).appendChild(link(el.id, '§ ' + n, t.textContent.trim()));
+    } else {
+      var m = el.textContent.match(/^Vedlegg (\d+)\.\s*(.*)$/);
+      chapUl.appendChild(link(el.id, m ? m[1] + '.' : '', m ? m[2] : el.textContent));
+    }
+  });
+
+  tree.querySelectorAll('details').forEach(function (d) {
+    if (d.querySelector('li')) return;
+    var li = d.parentNode; li.innerHTML = '';
+    var a = document.createElement('a'); a.href = '#' + d.dataset.chap;
+    a.textContent = d.querySelector('summary').textContent; a.style.fontWeight = '600'; a.style.color = 'var(--fg)';
+    links.push(a); li.appendChild(a);
+  });
+  var details = tree.querySelectorAll('details');
+  function setCurrent(id) {
+    links.forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + id;
+      a.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on) {
+        var d = a.closest('details'); if (d && !d.open) d.open = true;
+        var g = a.parentNode; while (g && g !== tree) { if (g.classList && g.classList.contains('grp') && g.contains(a)) { if (g.firstChild !== a) { g.classList.remove('collapsed'); var b = g.querySelector(':scope > .tg'); if (b) b.setAttribute('aria-expanded', 'true'); } } g = g.parentNode; }
+        var side = document.getElementById('side');
+        var r = a.getBoundingClientRect(), sr = side.getBoundingClientRect();
+        if (r.top < sr.top || r.bottom > sr.bottom) a.scrollIntoView({ block: 'nearest' });
+      }
+    });
+  }
+  var targets = Array.prototype.slice.call(main.querySelectorAll('section.par, h4.gjeng, .vedlegg h3'));
+  var visible = {};
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+    for (var i = 0; i < targets.length; i++) { if (visible[targets[i].id]) { setCurrent(targets[i].id); break; } }
+  }, { rootMargin: '0px 0px -70% 0px' });
+  targets.forEach(function (t) { io.observe(t); });
+  if (details[0]) details[0].open = true;
+
+  var btn = document.getElementById('menu-btn'), scrim = document.getElementById('scrim');
+  function setNav(open) { document.body.classList.toggle('nav-open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  btn.addEventListener('click', function () { setNav(!document.body.classList.contains('nav-open')); });
+  scrim.addEventListener('click', function () { setNav(false); });
+  tree.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
+
+  /* ---------- Filtre: visning, ansvarlig og status ---------- */
+  var fView = document.getElementById('f-view'), fGjeng = document.getElementById('f-gjeng'),
+      fStatus = document.getElementById('f-status'), fCount = document.getElementById('f-count');
+  function numOf(el) {
+    var sg = el.querySelector && el.querySelector('.sign');
+    return sg ? sg.textContent.replace('§', '').trim() : null;
+  }
+  function titleOf(sec) {
+    var h = sec.querySelector('h3').cloneNode(true);
+    h.querySelectorAll('.sign').forEach(function (x) { x.remove(); });
+    return h.textContent.trim();
+  }
+  var secs = Array.prototype.slice.call(main.querySelectorAll('section.par'));
+  var heads = Array.prototype.slice.call(main.querySelectorAll('h4.gjeng'));
+  var byNum = {};
+  secs.forEach(function (s) { byNum[numOf(s)] = s; });
+  var grp = {};
+  heads.forEach(function (h) { grp[numOf(h)] = h; });
+  function groupOf(n) {
+    var parts = n.split('.');
+    for (var k = parts.length - 1; k >= 1; k--) { var g = parts.slice(0, k).join('.'); if (grp[g]) return g; }
+    return null;
+  }
+  function ansvarText(g) {
+    var cand = Object.keys(byNum).filter(function (n) { return groupOf(n) === g && titleOf(byNum[n]) === 'Ansvar'; });
+    if (cand.length) return byNum[cand[0]].textContent.toLowerCase();
+    var gen = g.split('.')[0] + '.1';
+    if (gen !== g && grp[gen]) return ansvarText(gen);
+    return '';
+  }
+  var mandatTitles = { 'Ansvar': 1, 'Mandat': 1, 'Oppgaver': 1 };
+  function apply() {
+    var view = fView.value, gj = fGjeng.value, st = fStatus.value;
+    var shown = 0;
+    secs.forEach(function (sec) {
+      var n = numOf(sec), chap = n.split('.')[0], g = groupOf(n), ok = true;
+      if (view === 'mandat') ok = chap === '4' || (Number(chap) >= 5 && !!mandatTitles[titleOf(sec)]);
+      if (ok && gj) {
+        if (Number(chap) >= 5) ok = g ? ansvarText(g).indexOf(gj) !== -1 : (byNum[chap + '.1'] && titleOf(byNum[chap + '.1']) === 'Ansvar' ? byNum[chap + '.1'].textContent.toLowerCase().indexOf(gj) !== -1 : false);
+        else ok = chap === '4';
+      }
+      var forslag = sec.getAttribute('data-status') === 'forslag';
+      if (ok && st === 'uten-forslag' && forslag) ok = false;
+      if (ok && st === 'forslag' && !forslag) ok = false;
+      sec.hidden = !ok;
+      if (ok) shown++;
+    });
+    heads.forEach(function (h) {
+      var n = numOf(h);
+      h.hidden = !secs.some(function (s) { return !s.hidden && numOf(s).indexOf(n + '.') === 0; });
+    });
+    main.querySelectorAll('h2[data-nr]').forEach(function (h2) {
+      var c = h2.dataset.nr;
+      h2.hidden = !secs.some(function (s) { return !s.hidden && numOf(s).split('.')[0] === c; });
+    });
+    var filtered = view !== 'alt' || gj || st;
+    ['vedlegg', 'endringslogg'].forEach(function (id) {
+      var h = document.getElementById(id); if (!h) return;
+      h.hidden = !!filtered;
+      var el = h.nextElementSibling;
+      while (el && el.tagName !== 'H2' && el.tagName !== 'SCRIPT') { el.hidden = !!filtered; el = el.nextElementSibling; }
+    });
+    fCount.textContent = filtered ? shown + ' paragrafer vises' : '';
+    links.forEach(function (a) {
+      var t = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+      if (t) a.parentNode.hidden = !!t.hidden;
+    });
+    tree.querySelectorAll('details').forEach(function (d) { var h = document.getElementById(d.dataset.chap); if (h) d.parentNode.hidden = !!h.hidden; });
+    try { localStorage.setItem('sh-filter', JSON.stringify({ v: view, g: gj, s: st })); } catch (e) {}
+  }
+  try {
+    var saved = JSON.parse(localStorage.getItem('sh-filter') || 'null');
+    if (saved) { fView.value = saved.v || 'alt'; fGjeng.value = saved.g || ''; fStatus.value = saved.s || ''; }
+  } catch (e) {}
+  [fView, fGjeng, fStatus].forEach(function (el) { el.addEventListener('change', apply); });
+  apply();
+  if (location.hash) { var el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) el.scrollIntoView(); }
+})();
+</script>
+<script>
+/* Begreper fra definisjonsparagrafen lenkes første gang de brukes i hver paragraf. */
+(function () {
+  var defs = [
+    ['ansvarlig-gjeng', 'ansvarlig gjeng(?:en)?', 'i'],
+    ['ntnui-gruppe', 'NTNUI-grupp(?:e|en|er|ene|enes|ens)', 'i'],
+    ['studenterhytta', 'Studenterhyttas?', ''],
+    ['hyttestyret', 'Hyttestyrets?', ''],
+    ['hyttegruppa', 'Hyttegruppas?', ''],
+    ['hytta', 'Hyttas?', ''],
+    ['gjengsjef', 'gjengsjef(?:en|er|ene|ens)?', 'i'],
+    ['hyttenisse', 'hyttenisse(?:n|r|ne)?', 'i'],
+    ['leietaker', 'leietaker(?:en|e|ne|ens)?', 'i'],
+    ['edruvakt', 'edruvakt(?:en|er|ene)?', 'i'],
+    ['gruppevakt', 'gruppevakt(?:en|er|ene)?', 'i'],
+    ['hyttevakt', 'hyttevakt(?:en|er|ene)?', 'i'],
+    ['skiftleder', 'skiftleder(?:en|e|ne|ens)?', 'i'],
+    ['beruset', 'beruset', 'i'],
+    ['aktiv', 'aktive?', 'i'],
+    ['gjeng', 'gjeng(?:en|er|ene|ens|enes)?', 'i']
+  ].filter(function (d) { return document.getElementById('def-' + d[0]); });
+  var re = defs.map(function (d) { return { id: d[0], rx: new RegExp('(^|[^\\wæøåÆØÅ-])(' + d[1] + ')(?![\\wæøåÆØÅ-])', d[2]) }; });
+  var defSec = document.getElementById('innledende/definisjoner');
+  document.querySelectorAll('main section.par').forEach(function (sec) {
+    if (sec === defSec) return;
+    var used = {};
+    var walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) { return n.parentElement.closest('h3, a, .sign, .ref') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }
+    });
+    var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (node) {
+      function next(text) {
+        var best = null;
+        re.forEach(function (r) {
+          if (used[r.id]) return;
+          var m = r.rx.exec(text);
+          if (m) { var pos = m.index + m[1].length; if (!best || pos < best.pos) best = { pos: pos, len: m[2].length, id: r.id }; }
+        });
+        return best;
+      }
+      var best = next(node.nodeValue);
+      while (best) {
+        var after = node.splitText(best.pos), rest = after.splitText(best.len);
+        var a = document.createElement('a'); a.className = 'def'; a.href = '#def-' + best.id; a.title = 'Se definisjon';
+        a.textContent = after.nodeValue; after.parentNode.replaceChild(a, after);
+        used[best.id] = 1; node = rest; best = next(node.nodeValue);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
