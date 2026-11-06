@@ -1,0 +1,29 @@
+name: Sjekk
+
+# Sjekker at innholdet bygger: henvisninger, struktur og status.
+# Den ferdige siden legges ved som nedlastbar artifakt.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  bygg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # hele historikken trengs for endringsloggen
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python bygg/bygg.py _site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bestemmelser
+          path: _site

@@ -1,0 +1,57 @@
+name: Publiser
+
+# Publiserer gjeldende versjon (main) og en forhåndsvisning per åpent
+# endringsforslag til GitHub Pages. Kjører når main endres og når en PR
+# åpnes, oppdateres eller lukkes.
+#
+# pull_request_target kjører koden fra main, ikke fra PR-en. Fra PR-ene
+# leses bare markdown og YAML (se bygg/bygg-alle.sh), så forslag kan ikke
+# kjøre egen kode med publiseringsrettigheter.
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    types: [opened, reopened, synchronize, edited, closed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  bygg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: bygg/bygg-alle.sh _site
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publiser:
+    needs: bygg
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
