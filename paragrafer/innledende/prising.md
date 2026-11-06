@@ -8,7 +8,7 @@ vedtak:
 
 (2) Studenterhytta har fire prisnivåer:
 
-- a) *gratis eller subsidiert:* arrangementer for promotering og arrangementer som takk for innsats,
+- a) *gratis eller subsidiert:* dugnader, arrangementer for promotering og arrangementer som takk for innsats,
 - b) *selvkost:* kjerneaktiviteter,
 - c) *NTNUI-pris:* festutleie og annen bruk for NTNUI-grupper,
 - d) *markedspris:* festutleie og annen bruk for andre.
