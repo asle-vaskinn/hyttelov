@@ -18,7 +18,3 @@ vedtak:
 (5) Hver endring skal føres i endringsloggen med hvem som endret, dato, hva som ble endret, type endring og eventuell kilde, herunder henvisning til vedtak.
 
 (6) Hyttestyret utnevner én person med mandat til å innarbeide endringer og føre endringsloggen.
-
-(7) Vedleggene fastsettes av den som er gitt mandat til det.
-
-(8) Vedleggene skal angi dato for ikrafttredelse og neste gjennomgang.
