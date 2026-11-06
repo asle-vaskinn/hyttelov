@@ -66,10 +66,12 @@ paragrafer uten vedtaksreferanse.
 - **Vedtak** flettes etter at Hyttestyret har fattet vedtaket. Vedtaksreferansen
   legges inn i `vedtak:` i paragrafen.
 - **Teknisk endring** (opprydding uten endret betydning) kan flettes direkte.
+- **Utkast** (endring i paragrafer som ennå er forslag) kan flettes direkte,
+  siden de ikke gjelder.
 - Alltid *Squash and merge*. Commit-meldingen avsluttes med
 
   ```
-  Type: vedtak        (eller teknisk)
+  Type: vedtak        (eller teknisk / utkast)
   Kilde: Hyttestyremøte 18, sak 3
   ```
 

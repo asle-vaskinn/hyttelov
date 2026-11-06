@@ -10,6 +10,7 @@
 
 - [ ] **Vedtak** – endrer innholdet. Flettes først når Hyttestyret har vedtatt det.
 - [ ] **Teknisk** – opprydding uten endret betydning (§ 1.10 fjerde ledd). Kan flettes direkte.
+- [ ] **Utkast** – endrer bare paragrafer med `status: forslag`. Kan flettes direkte.
 
 ## Kilde
 
