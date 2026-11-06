@@ -1,7 +1,7 @@
 # Bestemmelser for Studenterhytta NTNUI
 
-Kilden til Studenterhyttas bestemmelser. Den publiserte versjonen ligger på
-<https://hyttelov.studenterhytta.org>.
+Kilden til Studenterhyttas bestemmelser. Den publiserte versjonen ligger i
+Permen under `/bestemmelser`. Permen henter repoet og bygger siden selv.
 
 ## Slik er repoet bygd opp
 
@@ -55,9 +55,10 @@ vedtatt eller slettet. Deretter kommer alle nye forslag som pull requests.
 2. Gjør endringen og trykk *Propose changes*, deretter *Create pull request*.
 3. Fyll ut malen: hva, begrunnelse, type og kilde.
 
-Bygget sjekker forslaget automatisk: ukjente henvisninger, paragrafer som
-mangler i `struktur.yml` og vedtatte paragrafer uten vedtaksreferanse
-stopper bygget.
+Bygget sjekker forslaget automatisk, og den ferdige siden kan lastes ned
+under *Actions → kjøringen → Artifacts → bestemmelser*. Bygget stopper ved
+ukjente henvisninger, paragrafer som mangler i `struktur.yml` og vedtatte
+paragrafer uten vedtaksreferanse.
 
 ## Regler for fletting (§ 1.10)
 
@@ -78,7 +79,8 @@ stopper bygget.
 
 ```sh
 pip install pyyaml
-python bygg/bygg.py          # skriver til _site/
+python bygg/bygg.py                       # skriver til _site/
+python bygg/bygg.py ut --kilde https://…  # annen mappe, med lenke til repoet
 ```
 
 `_site/bestemmelser.json` har alle paragrafer med nummer, status og tekst,
