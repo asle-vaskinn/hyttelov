@@ -2,7 +2,7 @@
 tittel: Fastsettelse og endring
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Hyttestyret fastsetter disse bestemmelsene.
 

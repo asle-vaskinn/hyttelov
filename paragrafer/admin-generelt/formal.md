@@ -2,6 +2,6 @@
 tittel: Formål
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Admin skal sørge for systemer og prosesser på Hytta, og for at styrevedtak følges opp.
