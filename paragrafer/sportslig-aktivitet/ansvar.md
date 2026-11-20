@@ -2,6 +2,6 @@
 tittel: Ansvar
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Sportslig aktivitet ivaretas av Hyttestyret.

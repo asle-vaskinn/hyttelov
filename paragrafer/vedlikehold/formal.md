@@ -2,6 +2,6 @@
 tittel: Formål
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Vedlikeholdet skal holde Hytta i god stand og bevare byggets karakter.

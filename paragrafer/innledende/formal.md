@@ -2,7 +2,7 @@
 tittel: Formål
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Formålet for Hytta og for Studenterhytta følger av NTNUIs lov.
 

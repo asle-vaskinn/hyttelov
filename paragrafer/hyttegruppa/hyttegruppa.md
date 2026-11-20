@@ -2,6 +2,6 @@
 tittel: Hyttegruppa
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Hyttegruppa ledes av Hyttestyret og er organisert i gjenger etter [[gjengene]].

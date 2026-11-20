@@ -2,7 +2,7 @@
 tittel: Aktivitetstyper
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Studenterhytta driver følgende aktiviteter, ordnet etter kobling til formålet:
 

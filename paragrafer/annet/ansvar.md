@@ -2,6 +2,6 @@
 tittel: Ansvar
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Annet ivaretas av Hyttestyret.

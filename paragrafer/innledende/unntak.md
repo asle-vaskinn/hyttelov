@@ -2,7 +2,7 @@
 tittel: Unntak
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Hyttestyret kan gjøre unntak fra disse bestemmelsene ved enkeltvedtak. Enkeltvedtak går foran disse bestemmelsene.
 

@@ -2,7 +2,7 @@
 tittel: Gjengene
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Kjøkkengjengen ledes av kjøkkensjef.
 

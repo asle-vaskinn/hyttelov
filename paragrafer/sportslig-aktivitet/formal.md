@@ -2,6 +2,6 @@
 tittel: Formål
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Sportslig aktivitet skal gi NTNUI-gruppene en base i Bymarka for idrett og friluftsliv.
