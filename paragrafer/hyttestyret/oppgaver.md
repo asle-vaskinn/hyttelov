@@ -2,7 +2,7 @@
 tittel: Oppgaver
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Hyttestyret fastsetter kalenderen etter [[arrangement-generelt/kalender]] og avgjør unntak fra perioder som er sperret for utleie.
 

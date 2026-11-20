@@ -2,7 +2,7 @@
 tittel: Faste arrangementer
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Følgende er faste arrangementer:
 

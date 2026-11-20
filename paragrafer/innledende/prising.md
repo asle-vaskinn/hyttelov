@@ -2,7 +2,7 @@
 tittel: Prising
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Sportslig aktivitet, åpen hytte og arrangement etter [[innledende/aktivitetstyper]] er kjerneaktiviteter. Festutleie og annen bruk skal finansiere kjerneaktivitetene.
 

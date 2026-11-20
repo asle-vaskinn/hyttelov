@@ -2,6 +2,6 @@
 tittel: Overnatting
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Overnatting inkluderer frokost.

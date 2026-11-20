@@ -2,7 +2,7 @@
 tittel: Definisjoner
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 I disse bestemmelsene menes med
 

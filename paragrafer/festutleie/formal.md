@@ -2,6 +2,6 @@
 tittel: Formål
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Festutleie skal fordele bruken av Hytta etter [[innledende/prioritering]] og gi inntekter til kjerneaktivitetene.

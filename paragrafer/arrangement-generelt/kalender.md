@@ -2,7 +2,7 @@
 tittel: Kalender
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Ukedagene er fordelt på aktivitetstyper slik:
 

@@ -2,7 +2,7 @@
 tittel: Gjennomføring
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Åpen hytte holdes på lørdager som er fordelt til åpen hytte etter [[arrangement-generelt/kalender]].
 

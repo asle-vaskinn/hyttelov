@@ -2,7 +2,7 @@
 tittel: Vakter ved utleie
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Leietaker skal stille edruvakt.
 

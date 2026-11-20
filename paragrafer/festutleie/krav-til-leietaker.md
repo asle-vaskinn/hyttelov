@@ -2,7 +2,7 @@
 tittel: Krav til leietaker
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Leietaker skal være en registrert organisasjon og dokumentere dette slik:
 

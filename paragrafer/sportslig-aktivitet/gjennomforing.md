@@ -2,7 +2,7 @@
 tittel: Gjennomføring
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Sportslig aktivitet skal ha konkurranse, trening, seminar eller annen aktivitet som er direkte knyttet til dette, som hovedinnhold.
 

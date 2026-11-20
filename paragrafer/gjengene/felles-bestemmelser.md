@@ -2,7 +2,7 @@
 tittel: Felles bestemmelser
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Hver gjeng ledes av en gjengsjef som utpekes av Hyttestyret.
 

@@ -2,7 +2,7 @@
 tittel: Åpenhet
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Vedtak med begrunnelse, regnskap og budsjett skal være tilgjengelige for alle medlemmer av Hyttegruppa.
 

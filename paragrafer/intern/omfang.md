@@ -2,7 +2,7 @@
 tittel: Omfang
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Interne arrangementer omfatter
 

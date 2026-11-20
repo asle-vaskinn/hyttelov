@@ -2,7 +2,7 @@
 tittel: Prioritering
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Ved konkurrerende bruk av Hytta gjelder følgende prioritet:
 

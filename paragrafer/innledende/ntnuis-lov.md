@@ -2,7 +2,7 @@
 tittel: NTNUIs lov
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Studenterhytta NTNUI er en driftsgruppe under NTNUI og rapporterer til NTNUIs generalforsamling.
 

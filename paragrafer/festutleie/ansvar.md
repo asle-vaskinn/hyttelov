@@ -2,6 +2,6 @@
 tittel: Ansvar
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 Festutleie ivaretas av design- og bookinggjengen.

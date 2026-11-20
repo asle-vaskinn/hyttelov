@@ -2,7 +2,7 @@
 tittel: Omfang
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) NTNUI-arrangement omfatter følgende arrangementer:
 

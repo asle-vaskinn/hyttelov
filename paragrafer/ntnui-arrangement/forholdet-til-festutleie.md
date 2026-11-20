@@ -2,7 +2,7 @@
 tittel: Forholdet til festutleie
 status: vedtatt
 vedtak:
-- Konsolideringsvedtak 1
+- Grunnlag
 ---
 (1) Bestemmelsene om festutleie i [[festutleie]] gjelder for NTNUI-arrangement med de unntakene som følger av annet og tredje ledd.
 
