@@ -38,11 +38,6 @@
   .st-tag.forslag { --st: var(--new); }
   .legend { font-family: var(--font-ui); font-size: .85rem; color: var(--muted); margin: 0 0 1rem; }
   .legend .st-tag { margin-left: 0; }
-  .filters { font-family: var(--font-ui); font-size: .85rem; display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: end; background: var(--panel); border-radius: 4px; padding: .75rem 1rem; margin: 0 0 2rem; }
-  .filters label { display: flex; flex-direction: column; gap: .2rem; color: var(--muted); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
-  .filters select { font: 500 .9rem var(--font-ui); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 3px; padding: .3rem .4rem; min-width: 9rem; text-transform: none; letter-spacing: 0; }
-  .filters select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .filter-count { color: var(--muted); font-size: .8rem; align-self: center; }
   .table-wrap { overflow-x: auto; margin: 0 0 1.25rem; }
   table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: .86rem; font-variant-numeric: tabular-nums; }
   th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -121,35 +116,6 @@
 
 {{TOPP}}
 <p class="legend"><span class="st-tag forslag">Forslag</span> er ikke vedtatt og gjelder ikke før Hyttestyret har vedtatt det.</p>
-<div class="filters" role="group" aria-label="Filtrer innhold">
-  <label for="f-view">Visning
-    <select id="f-view">
-      <option value="alt">Hele dokumentet</option>
-      <option value="mandat">Mandatoversikt</option>
-    </select>
-  </label>
-  <label for="f-gjeng">Ansvarlig
-    <select id="f-gjeng">
-      <option value="">Alle</option>
-      <option value="kjøkkengjengen">Kjøkkengjengen</option>
-      <option value="ølbugjengen">Ølbugjengen</option>
-      <option value="design- og bookinggjengen">Design- og bookinggjengen</option>
-      <option value="vedlikeholdsgjengen">Vedlikeholdsgjengen</option>
-      <option value="admingjengen">Admingjengen</option>
-      <option value="økonomiansvarlig">Økonomiansvarlig og kasserer</option>
-      <option value="hyttestyret">Hyttestyret</option>
-    </select>
-  </label>
-  <label for="f-status">Status
-    <select id="f-status">
-      <option value="">Vedtatt og forslag</option>
-      <option value="uten-forslag">Bare vedtatt</option>
-      <option value="forslag">Bare forslag</option>
-      <option value="endret" id="f-endret">Endret i forslaget</option>
-    </select>
-  </label>
-  <span class="filter-count" id="f-count" aria-live="polite"></span>
-</div>
 
 {{INNHOLD}}
 
@@ -245,85 +211,6 @@
   scrim.addEventListener('click', function () { setNav(false); });
   tree.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
-
-  /* ---------- Filtre: visning, ansvarlig og status ---------- */
-  var fView = document.getElementById('f-view'), fGjeng = document.getElementById('f-gjeng'),
-      fStatus = document.getElementById('f-status'), fCount = document.getElementById('f-count');
-  function numOf(el) {
-    var sg = el.querySelector && el.querySelector('.sign');
-    return sg ? sg.textContent.replace('§', '').trim() : null;
-  }
-  function titleOf(sec) {
-    var h = sec.querySelector('h3').cloneNode(true);
-    h.querySelectorAll('.sign').forEach(function (x) { x.remove(); });
-    return h.textContent.trim();
-  }
-  var secs = Array.prototype.slice.call(main.querySelectorAll('section.par'));
-  var heads = Array.prototype.slice.call(main.querySelectorAll('h4.gjeng'));
-  var byNum = {};
-  secs.forEach(function (s) { byNum[numOf(s)] = s; });
-  var grp = {};
-  heads.forEach(function (h) { grp[numOf(h)] = h; });
-  function groupOf(n) {
-    var parts = n.split('.');
-    for (var k = parts.length - 1; k >= 1; k--) { var g = parts.slice(0, k).join('.'); if (grp[g]) return g; }
-    return null;
-  }
-  function ansvarText(g) {
-    var cand = Object.keys(byNum).filter(function (n) { return groupOf(n) === g && titleOf(byNum[n]) === 'Ansvar'; });
-    if (cand.length) return byNum[cand[0]].textContent.toLowerCase();
-    var gen = g.split('.')[0] + '.1';
-    if (gen !== g && grp[gen]) return ansvarText(gen);
-    return '';
-  }
-  var mandatTitles = { 'Ansvar': 1, 'Mandat': 1, 'Oppgaver': 1 };
-  function apply() {
-    var view = fView.value, gj = fGjeng.value, st = fStatus.value;
-    var shown = 0;
-    secs.forEach(function (sec) {
-      var n = numOf(sec), chap = n.split('.')[0], g = groupOf(n), ok = true;
-      if (view === 'mandat') ok = chap === '4' || (Number(chap) >= 5 && !!mandatTitles[titleOf(sec)]);
-      if (ok && gj) {
-        if (Number(chap) >= 5) ok = g ? ansvarText(g).indexOf(gj) !== -1 : (byNum[chap + '.1'] && titleOf(byNum[chap + '.1']) === 'Ansvar' ? byNum[chap + '.1'].textContent.toLowerCase().indexOf(gj) !== -1 : false);
-        else ok = chap === '4';
-      }
-      var forslag = sec.getAttribute('data-status') === 'forslag';
-      if (ok && st === 'uten-forslag' && forslag) ok = false;
-      if (ok && st === 'forslag' && !forslag) ok = false;
-      if (ok && st === 'endret' && !sec.hasAttribute('data-endret')) ok = false;
-      sec.hidden = !ok;
-      if (ok) shown++;
-    });
-    heads.forEach(function (h) {
-      var n = numOf(h);
-      h.hidden = !secs.some(function (s) { return !s.hidden && numOf(s).indexOf(n + '.') === 0; });
-    });
-    main.querySelectorAll('h2[data-nr]').forEach(function (h2) {
-      var c = h2.dataset.nr;
-      h2.hidden = !secs.some(function (s) { return !s.hidden && numOf(s).split('.')[0] === c; });
-    });
-    var filtered = view !== 'alt' || gj || st;
-    ['vedlegg', 'endringslogg'].forEach(function (id) {
-      var h = document.getElementById(id); if (!h) return;
-      h.hidden = !!filtered;
-      var el = h.nextElementSibling;
-      while (el && el.tagName !== 'H2' && el.tagName !== 'SCRIPT') { el.hidden = !!filtered; el = el.nextElementSibling; }
-    });
-    fCount.textContent = filtered ? shown + ' paragrafer vises' : '';
-    links.forEach(function (a) {
-      var t = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-      if (t) a.parentNode.hidden = !!t.hidden;
-    });
-    tree.querySelectorAll('details').forEach(function (d) { var h = document.getElementById(d.dataset.chap); if (h) d.parentNode.hidden = !!h.hidden; });
-    try { localStorage.setItem('sh-filter', JSON.stringify({ v: view, g: gj, s: st })); } catch (e) {}
-  }
-  try {
-    var saved = JSON.parse(localStorage.getItem('sh-filter') || 'null');
-    if (saved) { fView.value = saved.v || 'alt'; fGjeng.value = saved.g || ''; fStatus.value = saved.s || ''; }
-  } catch (e) {}
-  if (!main.querySelector('[data-endret]')) { document.getElementById('f-endret').remove(); if (fStatus.value === 'endret') fStatus.value = ''; }
-  [fView, fGjeng, fStatus].forEach(function (el) { el.addEventListener('change', apply); });
-  apply();
   if (location.hash) { var el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) el.scrollIntoView(); }
 })();
 </script>
